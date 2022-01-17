@@ -1,0 +1,687 @@
+/* CSS Document */
+*, *::after, *::before {
+  box-sizing:border-box;  
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  height: 100vh;
+}
+
+:root{
+  --focus-color:#C7C2E9;
+}
+
+/* standaard tekst kleur is #25167A */
+
+/* Header*/
+body {
+  font-family: 'Open sans', sans-serif;
+  color: #25167A;
+}
+
+img{
+  width: 100%;
+}
+
+header {
+  position: sticky; /* zo blijft hij op zn plek tijdens het scrollen*/
+  width: 100%; /* lekker de volle breedte*/
+  top: 0; 
+  background-color: white;
+}
+
+header section {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 5px;
+  align-items: center;
+  box-shadow:0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+header section button{ /* hamburger menu button */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 3em;
+  height: 3em;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  z-index: 20;
+  background: none;
+}
+
+
+
+header section button span{  /* hamburger menu drie lijntjes */
+  position: relative;
+  display: block;
+  width: 27px;
+  height: 4px;
+  margin: 3px 0;
+  background: #25167A; 
+  border-radius: 3px;
+  transform-origin: 0 0;
+  transition: all .4s ease-in;
+}
+
+body.uitklap button span:nth-of-type(1) {
+  transform: rotate(45deg) translate(1px,-2px);
+  
+}
+
+body.uitklap button span:nth-of-type(2) {
+  transform: scaleX(0); /* zorgt ervoor dat de grootte 0 wordt op de x-as*/
+}
+
+body.uitklap button span:nth-of-type(3) {
+  transform: rotate(-45deg) translate(1px,-1px);
+  
+}
+
+header img {
+  height: 25px;
+  width: 25px;
+  margin: 0 8px;
+}
+
+header h1 {
+  font-size: 14px;
+}
+
+
+
+
+/* nav first of type */
+nav:first-of-type { /* Staat hidden todat aangeroepen door JS*/
+  width: 90%;
+  /*display: none;*/
+  /* background-color: rgb(134, 214, 134); tijdelijk gebruikt om te zien hoe groot de nav was*/
+  border-top: 1px white solid;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25); /*Code gehaald uit Figma :D */
+  position: fixed;
+  z-index: 10; /* Je past de hierarchie aan. Hoe hoger het getal hoe hoger de laag*/
+  top: 60px; /* Zo staar de nav onder de header*/
+  right: 0; /* Nu staat de nav helemaal rechts*/
+  background-color: white;
+  transform: scaleY(0);
+  transform-origin: center top;
+  transition: all 0.4s;
+  opacity: 0;
+  overflow: hidden;
+}
+
+body.uitklap nav:first-of-type {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+nav:first-of-type button {
+  color: #25167A;
+  border: none;
+  font-weight: 900;
+  padding: 12px 0px 4px;
+  background-color: transparent;
+}
+
+nav:first-of-type ul li{
+  list-style-type: none;
+  padding: 0 14px 14px 14px;
+}
+
+nav:first-of-type ul li h3{
+  font-weight: 400;
+  font-size: 18px;
+  padding: 16px 0 0;
+  border-top: 1px solid #C7C2E9 ;
+  width: 100%;
+}
+
+
+
+/* nav second of type */
+
+nav:nth-of-type(2) {
+  width: 100%;
+}
+
+nav:nth-of-type(2) ul { 
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 5px;
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+nav:nth-of-type(2) ul li {
+  margin: 0 1px;
+}
+
+nav:nth-of-type(2) ul li a {
+  display: block;
+  color: white;
+  padding: 4px 8px ;
+  text-decoration: none;
+  font-size: 12px;
+  background-color: #25167A
+}
+
+
+
+ /* Main */
+
+main > div:nth-of-type(1) {
+  background-color: #A4F2DF;
+  padding: 13px 8px 22px;
+  
+}
+
+main div:nth-of-type(1) h4 {
+  font-size: 14px;
+  font-weight: 400;
+  padding: 5px;
+  
+}
+
+ /* Rooster */
+
+main section:first-of-type h2 {  /* titel */
+  font-size: 20px;
+  padding: 18px 8px;
+}
+
+main section:first-of-type article{ /* beide artikelen */
+  width: 100vw;
+  display: flex;
+  padding: 16px;
+  flex-wrap: wrap; /* elementen gaan eronder verder */
+}
+
+main section:first-of-type article:first-of-type {  /* eerste article */
+  background-color: #E5E7EB;
+}
+
+main section:first-of-type article:nth-of-type(2) {  /* tweede article */
+  border-bottom: 3px solid #25167A;
+}
+
+section:first-of-type article p:nth-child(1){  /* tekst kleur eerste vak */
+  color: #394150;
+  width: 58%;
+}
+
+section:first-of-type article p:nth-child(2){  /*tijd*/
+  font-weight: 800;
+  width: 42%;
+  text-align: right;
+}
+
+section:first-of-type article p:nth-child(4){ /* Online*/
+  font-weight: 800;
+  color:#394150;
+  padding: 5px 0px 0px 10px;
+}
+
+main section:first-of-type img{  /* koptelefoon img */
+  width: 1.3em;
+  height: 1.3em;
+  padding-top: 8px;
+}
+
+main section > a {
+  text-align: center;
+  display: block;
+  padding: 16px;
+  color: #25167A;
+}
+
+
+
+/* Mededelingen */
+
+main section:nth-of-type(2) h2 {
+  font-size: 20px;
+  padding: 18px 8px;
+}
+
+main section:nth-of-type(2) article{
+  background-color: #F2F1F7;
+  margin-bottom: 1.5em;
+  padding: 16px;
+}
+
+main section:nth-of-type(2) article > p{
+  border-top: 2px solid #C7C2E9;
+  padding-top: 4px;
+  height: 0;
+  overflow: hidden;
+  opacity: 0; /* Fade in animatie */
+  transition: all .2s;
+}
+
+main section:nth-of-type(2) article.active > p{
+  border-top: 2px solid #C7C2E9;
+  padding-top: 10px;
+  height: auto;
+  opacity: 1; /* Fade in animatie 
+  transform: ;*/
+  transition: all .2s;
+}
+
+
+main section:nth-of-type(2) article div {
+  justify-content: space-between;
+  display: flex;
+  padding-bottom: 8px;
+  
+}
+
+main section:nth-of-type(2) article div p{
+  margin-top: 16px;
+  color: #25167A;
+}
+
+main section:nth-of-type(2) article div button{
+  margin-top: 16px;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  background:transparent;
+}
+
+main section:nth-of-type(2) article img{
+  transition: all .3s; /*tranistion tussen deze en active is 0.3s*/
+}
+
+main section:nth-of-type(2) article.active img{
+  transform: rotate(180deg); /*draaien*/
+  transform-origin: center center; /*draait vanuit het midden*/
+  transition: all .3s;
+}
+
+
+/* Studie resultaten*/
+
+main section:nth-of-type(3) h2 {
+  font-size: 20px;
+  padding: 18px 8px;
+}
+
+main section:nth-of-type(3) table tr td img {
+  width: 1.2em;
+  height: 1.2em;
+}
+
+main section:nth-of-type(3) table {
+  width: 100vw;
+  border-spacing: 0px;
+  background-color: white;
+  box-shadow:0 1px 0 rgba(0, 0, 0, 0.25);
+}
+
+main section:nth-of-type(3) table td{
+  padding: 8px;
+} 
+
+main section:nth-of-type(3) table td:nth-child(1){
+  padding: 8px 1px 8px 8px;
+}
+
+main section:nth-of-type(3) table td:nth-child(3){
+  padding: 8px 8px 8px 1px;
+}
+
+main section:nth-of-type(3) table tr:nth-child(1), tr:nth-child(3) {
+  background-color: #E9E7F5;
+}
+
+main section:nth-of-type(3) table tr p{
+  font-size: 11px;
+  color: #25167A;
+}
+
+main section > a{
+  text-align: center;
+  display: block;
+  padding: 16px;
+  color: #25167A;
+}
+
+
+
+
+/* HvA nieuws*/
+
+main section:nth-of-type(4) h2 {
+  font-size: 20px;
+  padding: 18px 8px;
+}
+
+main section:nth-of-type(4) article{
+  background-color: #F2F1F7;
+  margin-bottom: 1.5em;
+  padding: 0px;
+  flex-direction: row;
+  width: 100vw;
+}
+
+main section:nth-of-type(4) article > div{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+main section:nth-of-type(4) article > div > img {
+  object-fit: cover; /* https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit?retiredLocale=nl voorkomt rare scaling op de img*/
+  width: 25%;
+}
+
+main section:nth-of-type(4) article > div > div {
+  padding: 16px;
+  flex-wrap: wrap;
+}
+
+main section:nth-of-type(4) article div  > div > div p{
+  margin-top: 16px;
+  color: #25167A;
+}
+
+main section:nth-of-type(4) article div  > div > div{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+main section:nth-of-type(4) article > p{
+  border-top: 2px solid #C7C2E9;
+  padding: 0 16px;
+  height: 0;
+  overflow: hidden;
+  opacity: 0; /* Fade in animatie */
+  transition: all .2s;
+}
+
+main section:nth-of-type(4) article.active > p{
+  border-top: 2px solid #C7C2E9;
+  padding:16px;
+  height: auto;
+  opacity: 1; /* Fade in animatie 
+  transform: ;*/
+  transition: all .2s ;
+}
+
+main section:nth-of-type(4) article.active > div > img {
+  width: 25%;
+}
+
+main section:nth-of-type(4) article > div > div{
+  justify-content: space-between;
+  display: flex;
+  padding-bottom: 8px;
+}
+
+
+main section:nth-of-type(4) article div > div > div button{
+  margin-top: 16px;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  background-color: transparent;
+}
+
+/*drop down animatie*/
+main section:nth-of-type(4) article div > div > div button img{
+  transition: all .3s; /*tranistion tussen deze en active is 0.3s*/
+}
+
+main section:nth-of-type(4) article.active div > div > div button img{
+  transform: rotate(180deg); /*draaien*/
+  transform-origin: center center; /*draait vanuit het midden*/
+  transition: all .3s;
+}
+
+/* Footer*/
+
+footer {
+  border-top: 2px solid #C7C2E9 ;
+  background-color: #F9FAFB;
+}
+
+footer section {
+  padding: 16px 32px;
+}
+
+footer section h3{
+  margin: 24px 0;
+}
+
+footer section div {
+  display: flex;
+  width: 100%;
+  padding: 4px;
+}
+
+footer section div img {
+  width: 1em;
+  height: 1em;
+  margin-right: 8px;
+}
+
+@keyframes groot{ /* de animatie zelf*/
+  0%{
+    transform: scale(1);
+  }
+  100%{ /* wanneer animatie op 100% done is*/
+    transform: scale(1.5);
+  }
+}
+
+footer section div img:hover{
+  animation-name: groot;
+  animation-duration: 3s; /*hoe lang het duurt*/
+}
+
+footer section > p:nth-of-type(3) {
+  border-top: 1px solid #C7C2E9;
+  width: 90%;
+  text-align: center;
+  margin-top: 16px;
+  padding-top: 16px;
+}
+
+footer section > p:nth-of-type(2){
+  padding-bottom: 4px;
+}
+
+
+
+
+
+
+
+
+/* CSS voor specifiek de detail pagina*/
+
+#detail article{
+  background-color: #F2F1F7;
+  margin-bottom: 1.5em;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+#detail article:nth-of-type(2) {
+  border: none; /*want de tweede article had een random border en kon het niet optijd fixen*/
+}
+
+#detail article > p{
+  border-top: 2px solid #C7C2E9;
+  padding-top: 4px;
+  height: 0;
+  overflow: hidden;
+  opacity: 0; /* Fade in animatie */
+  transition: all .8s;
+}
+
+#detail article.active > p{
+  border-top: 2px solid #C7C2E9;
+  padding-top: 10px;
+  height: auto;
+  opacity: 1; /* Fade in animatie 
+  transform: ;*/
+  transition: .5s ease-in;
+}
+
+main section#detail article img{
+  transition: all .3s; /*tranistion tussen deze en active is 0.3s*/
+}
+
+main section#detail article.active img{
+  transform: rotate(180deg); /*draaien*/
+  transform-origin: center center; /*draait vanuit het midden*/
+  transition: all .3s;
+}
+
+#detail article div{
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  padding-bottom: 8px;
+}
+
+#detail article div p{
+  margin-top: 16px;
+  color: #25167A;
+}
+
+#detail article div button{
+  margin-top: 16px;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+  width: 1em;
+  height: 1em;
+  background-color: transparent;
+}
+
+
+/**NACHTMODUS**/
+
+body.nacht {
+  color: #FFFFFF;
+  background-color: #1F1F1F;
+}
+
+body.nacht main section > article, body.nacht main section:first-of-type article:first-of-type {
+  background-color: #2D385C;
+}
+
+body.nacht main section article p, body.nacht main section article div p  {
+  color: white;
+}
+
+body.nacht header {
+  background-color: #1F1F1F;
+}
+
+body.nacht header section button span {
+  background-color: white;
+}
+ 
+body.nacht nav:first-of-type {
+  background-color: #1F1F1F;
+}
+
+body.nacht nav:first-of-type button{
+  color: white;
+}
+
+body.nacht main > div:first-of-type {
+ background-color: #0B4435;
+}
+
+body.nacht section:first-of-type article p {
+  color: white;
+}
+
+body.nacht main section > a {
+  color: white;
+}
+
+body.nacht footer section {
+  background-color: #1F1F1F;
+}
+
+body.nacht main section:nth-of-type(3) table {
+  background-color: #1F1F1F;
+}
+
+body.nacht main section:nth-of-type(3) table p {
+  color: white;
+}
+
+body.nacht main section:nth-of-type(3) table tr:nth-child(1), body.nacht main section:nth-of-type(3) tr:nth-child(3) { /*voor de table*/
+  background-color: #2D385C;
+}
+
+body.nacht main section:nth-of-type(4) article div > div > div p {
+  color: white;
+}
+
+body.nacht #detail article {
+  background-color: #2D385C
+}
+
+body.nacht #detail article div p {
+  color: white;
+}
+
+
+/**CSS FOCUS**/
+
+header section a:focus { /*Je kan op tab en enter drukken en dan ga je terug naar de home pagina*/
+  background-color: var(--focus-color);
+  outline: none;
+}
+
+header section button:focus{
+  background-color:var(--focus-color);
+  outline: none;
+}
+
+nav:first-of-type ul li button:focus{
+  background-color:var(--focus-color);
+  outline: none;
+}
+
+nav:nth-of-type(2) ul li a:focus{
+  background-color:var(--focus-color);
+  outline: none;
+  color: #25167A;
+} 
+
+main section > a:focus{
+  background-color:var(--focus-color);
+  outline: none;
+}
+
+main section article div > button:focus{ /*Wanneer je tabt door de website heen pakt hij het wel, alleen laat de background niet zien*/
+  background-color:var(--focus-color);
+  outline: none;
+}
+
